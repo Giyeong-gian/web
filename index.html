@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" media="(max-width:520px)" href="mobile.css">
+<link rel="stylesheet" href="index.css">
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script language="JavaScript">
+	function check(){
+		var id = $('input[name=id]').val();
+		var pw = $('input[name=pw]').val();
+		if(id==""||pw==""){
+			window.alert("insert your identify");
+			return false;
+		}
+        xss_filter(id);
+        $("#login").submit();
+	}
+    function xss_filter(str){
+            var regex = /\<\>\"\'\&/g;
+    }
+</script>
+</head>
+<body class="login">
+<form id="login" method="post" action="login.php">
+	<table class="main">
+        <tr class="top"><th><h1>Page for Eli</h1></th></tr>
+		<tr class="middle"><th><div>
+                    <div class="id_input"><h1>ID</h1><input class="idpw" type="text" name="id"/></div>
+                    <div class="pw_input"><h1>Password</h1><input class="idpw" type="password" name="pw"/></div>
+		</div></th></tr>
+		<tr class="bottom"><th><button class="login_button" type="button" onclick="check()">Login</button></th></tr>
+	</table>
+</form>
+</body>
+</html>
